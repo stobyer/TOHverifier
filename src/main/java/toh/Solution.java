@@ -3,7 +3,7 @@ package toh;
 import java.util.ArrayList;
 import java.util.List;
 
-class GameDefinition {
+class Solution {
     private int numDisks;
     private List<Move> moves = new ArrayList<>();
 

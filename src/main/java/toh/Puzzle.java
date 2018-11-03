@@ -35,6 +35,8 @@ class Puzzle {
     }
 
     boolean verifyEndState() {
+        // Starting rod must be empty.
+        // All disks in correct order must be on second or third rod.
         return rods.get(0).isEmpty() &&
                 ((rods.get(1).isEmpty() && !rods.get(2).isEmpty() && rods.get(2).isValidFinal())
                         || (rods.get(2).isEmpty() && !rods.get(1).isEmpty() && rods.get(1).isValidFinal()));

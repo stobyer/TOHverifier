@@ -5,10 +5,10 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-class InputParserTest {
+public class InputParserTest {
 
 //    @Test
-//    void createGameDefinition() {
+//    void parseSolution() {
 //    }
 //
 //    @Test
@@ -16,57 +16,57 @@ class InputParserTest {
 //    }
 
     @Test
-    void validateDisksString_correct() {
+    public void validateDisksString_correct() {
         assertTrue(InputParser.validateDisksString("4"));
     }
 
     @Test
-    void validateDisksString_float_false() {
+    public void validateDisksString_float_false() {
         assertFalse(InputParser.validateDisksString("4.5"));
     }
 
     @Test
-    void validateDisksString_negative_integer_false() {
+    public void validateDisksString_negative_integer_false() {
         assertFalse(InputParser.validateDisksString("-3"));
     }
 
     @Test
-    void validateDisksString_any_string_false() {
+    public void validateDisksString_any_string_false() {
         assertFalse(InputParser.validateDisksString("sfdw"));
     }
 
     @Test
-    void validateMoveString_23_correct() {
+    public void validateMoveString_23_correct() {
         assertTrue(InputParser.validateMoveString("23"));
     }
 
     @Test
-    void validateMoveString_03_incorrect() {
+    public void validateMoveString_03_incorrect() {
         assertFalse(InputParser.validateMoveString("03"));
     }
 
     @Test
-    void validateMoveString_24_incorrect() {
+    public void validateMoveString_24_incorrect() {
         assertFalse(InputParser.validateMoveString("24"));
     }
 
     @Test
-    void validateMoveString_4_digites_incorrect() {
+    public void validateMoveString_4_digites_incorrect() {
         assertFalse(InputParser.validateMoveString("2234"));
     }
 
     @Test
-    void validateMoveString_any_string_correct_length_incorrect() {
+    public void validateMoveString_any_string_correct_length_incorrect() {
         assertFalse(InputParser.validateMoveString("we"));
     }
 
     @Test
-    void validateMoveString_2_digits_one_negative_incorrect() {
+    public void validateMoveString_2_digits_one_negative_incorrect() {
         assertFalse(InputParser.validateMoveString("3-2"));
     }
 
     @Test
-    void validateMoveString_single_negative_incorrect() {
+    public void validateMoveString_single_negative_incorrect() {
         assertFalse(InputParser.validateMoveString("3-2"));
     }
 

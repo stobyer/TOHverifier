@@ -21,9 +21,9 @@ public class SolutionVerifier {
 
     static Result verifySolution(List<String> allLines) {
         try {
-            GameDefinition gameDefinition = InputParser.createGameDefinition(allLines);
-            Puzzle puzzle = Puzzle.createPuzzle(gameDefinition.getNumDisks());
-            gameDefinition.getMoves().forEach(m -> puzzle.move(m.fromDisk, m.toDisk));
+            Solution solution = InputParser.parseSolution(allLines);
+            Puzzle puzzle = Puzzle.createPuzzle(solution.getNumDisks());
+            solution.getMoves().forEach(m -> puzzle.move(m.fromDisk, m.toDisk));
             if (puzzle.verifyEndState()) {
                 return Result.Yes;
             }

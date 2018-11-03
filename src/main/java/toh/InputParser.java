@@ -3,21 +3,20 @@ package toh;
 import java.util.List;
 
 class InputParser {
-    static GameDefinition createGameDefinition(List<String> allLines){
-        GameDefinition gameDefinition = new GameDefinition();
+    static Solution parseSolution(List<String> allLines){
+        Solution gameDefinition = new Solution();
 
         validateAndSetDisks(allLines, gameDefinition);
         validateAndAddMoves(allLines.subList(1, allLines.size()), gameDefinition);
         return gameDefinition;
     }
 
-    private static void validateAndSetDisks(List<String> allLines, GameDefinition gameDefinition) {
+    private static void validateAndSetDisks(List<String> allLines, Solution gameDefinition) {
         if (!validateDisksString(allLines.get(0))) {
             throw new IllegalArgumentException("The disk amount must be a positive integer");
         }
 
         gameDefinition.setNumDisks(Integer.parseInt(allLines.get(0)));
-//        allLines.remove(0);
     }
 
     static boolean validateDisksString(String disks) {
@@ -32,7 +31,7 @@ class InputParser {
         return true;
     }
 
-    private static void validateAndAddMoves(List<String> allLines, GameDefinition gameDefinition) {
+    private static void validateAndAddMoves(List<String> allLines, Solution gameDefinition) {
         for (String move : allLines) {
             if (!validateMoveString(move)) {
                 throw new IllegalArgumentException("The move string must be exactly two digits, each one between 1 and 3 inclusive");
